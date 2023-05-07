@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		38314E6029F04F32008C672C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 38314E5F29F04F32008C672C /* main.cpp */; };
+		38314E6829F04FD9008C672C /* libgurobi_c++.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38314E6729F04FC9008C672C /* libgurobi_c++.a */; };
+		38314E6A29F04FF7008C672C /* libgurobi95.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 38314E6929F04FF7008C672C /* libgurobi95.dylib */; };
+		38314E6B29F04FF7008C672C /* libgurobi95.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 38314E6929F04FF7008C672C /* libgurobi95.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		38314E6F29F05055008C672C /* SuppPt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 38314E6D29F05055008C672C /* SuppPt.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -20,11 +24,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		38314E6C29F04FF7008C672C /* Embed Libraries */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				38314E6B29F04FF7008C672C /* libgurobi95.dylib in Embed Libraries */,
+			);
+			name = "Embed Libraries";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		38314E5C29F04F32008C672C /* ColGen_QuadIPPrice */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ColGen_QuadIPPrice; sourceTree = BUILT_PRODUCTS_DIR; };
 		38314E5F29F04F32008C672C /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		38314E6729F04FC9008C672C /* libgurobi_c++.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgurobi_c++.a"; path = "../../../../Library/gurobi951/macos_universal2/lib/libgurobi_c++.a"; sourceTree = "<group>"; };
+		38314E6929F04FF7008C672C /* libgurobi95.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libgurobi95.dylib; path = ../../../../Library/gurobi951/macos_universal2/lib/libgurobi95.dylib; sourceTree = "<group>"; };
+		38314E6D29F05055008C672C /* SuppPt.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SuppPt.cpp; path = ../../Barycenter/OriginalGrid/OriginalGrid/SuppPt.cpp; sourceTree = "<group>"; };
+		38314E6E29F05055008C672C /* SuppPt.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = SuppPt.hpp; path = ../../Barycenter/OriginalGrid/OriginalGrid/SuppPt.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +51,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38314E6A29F04FF7008C672C /* libgurobi95.dylib in Frameworks */,
+				38314E6829F04FD9008C672C /* libgurobi_c++.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +64,7 @@
 			children = (
 				38314E5E29F04F32008C672C /* ColGen_QuadIPPrice */,
 				38314E5D29F04F32008C672C /* Products */,
+				38314E6629F04FC8008C672C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,9 +79,20 @@
 		38314E5E29F04F32008C672C /* ColGen_QuadIPPrice */ = {
 			isa = PBXGroup;
 			children = (
+				38314E6D29F05055008C672C /* SuppPt.cpp */,
+				38314E6E29F05055008C672C /* SuppPt.hpp */,
 				38314E5F29F04F32008C672C /* main.cpp */,
 			);
 			path = ColGen_QuadIPPrice;
+			sourceTree = "<group>";
+		};
+		38314E6629F04FC8008C672C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				38314E6929F04FF7008C672C /* libgurobi95.dylib */,
+				38314E6729F04FC9008C672C /* libgurobi_c++.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -72,6 +105,7 @@
 				38314E5829F04F32008C672C /* Sources */,
 				38314E5929F04F32008C672C /* Frameworks */,
 				38314E5A29F04F32008C672C /* CopyFiles */,
+				38314E6C29F04FF7008C672C /* Embed Libraries */,
 			);
 			buildRules = (
 			);
@@ -120,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38314E6029F04F32008C672C /* main.cpp in Sources */,
+				38314E6F29F05055008C672C /* SuppPt.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +276,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/gurobi951/macos_universal2/lib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -249,6 +288,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/gurobi951/macos_universal2/lib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
